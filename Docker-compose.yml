@@ -3,10 +3,10 @@ services:
   images: maven
     dockerfile: Dockerfile
     volumes:
-      - /tmp/    
-   images: tomcat
-      dockerfile: Dockerfile_tc
-      ports:
+      - /tmp/
+    images: tomcat
+    dockerfile: Dockerfile_tc
+    ports:
         - "8080:8080"
       volumes:
         - /tmp/:$CATALINA_HOME/webapps/
