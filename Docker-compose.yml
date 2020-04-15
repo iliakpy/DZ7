@@ -1,0 +1,19 @@
+version: '3'
+services:
+       maven:
+           container_name: maven-container
+           build:
+               context: .
+               dockerfile: Dockerfile
+               volumes: 
+                  - /tmp/
+       tomcat:
+           container_name: tomcat-container
+           build:
+               context: .
+               dockerfile: Dockerfile_tc
+           ports:
+              - "8080:8080"
+           volumes:
+              - /tmp/:$CATALINA_HOME/webapps/
+  
