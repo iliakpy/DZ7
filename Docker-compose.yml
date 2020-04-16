@@ -6,8 +6,8 @@ services:
         build_boxfuse:
                 volumes:
                         - boxfuse:/var/boxfuse/target/
-                build:
-                        context: .
+                 build:
+                       context: .
                           dockerfile: Dockerfile
         prod_boxfuse:
                 volumes:
