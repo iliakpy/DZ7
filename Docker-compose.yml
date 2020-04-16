@@ -7,8 +7,8 @@ services:
                 volumes:
                         - boxfuse:/var/boxfuse/target/
                 build:
-                       context: .
-                         dockerfile: Dockerfile
+                      context: .
+                        dockerfile: Dockerfile
         prod_boxfuse:
                 volumes:
                         - boxfuse:/opt/tomcat/webapps/hello
