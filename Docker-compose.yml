@@ -1,12 +1,21 @@
-version: '3'
+---
+version: '3.7'
+volumes:
+        boxfuse:
 services:
-  images: maven
-    dockerfile: Dockerfile
-    volumes:
-      - /tmp/
-    images: tomcat
-    dockerfile: Dockerfile_tc
-    ports:
-        - "8080:8080"
-      volumes:
-        - /tmp/:$CATALINA_HOME/webapps/
+        build_boxfuse:
+                volumes:
+                        - boxfuse:/var/boxfuse/target/
+                build:
+                       context: .
+                       dockerfile: Dockerfile 
+        prod_boxfuse:
+                volumes:
+                        - boxfuse:/opt/tomcat/webapps/hello
+                build:
+                      context: .
+                      dockerfile: Dockerfile_tc
+                ports:
+                       - "8080:8080"
+        command: "/opt/tomcat/bin/catalina.sh run"
+---
