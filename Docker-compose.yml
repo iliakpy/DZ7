@@ -7,15 +7,15 @@ services:
                 volumes:
                         - boxfuse:/var/boxfuse/target/
                 build:
-                      context: .
-                      dockerfile: Dockerfile
+                       context: .
+                         dockerfile: Dockerfile
         prod_boxfuse:
                 volumes:
                         - boxfuse:/opt/tomcat/webapps/hello
-                build:
-                      context: .
-                      dockerfile: Dockerfile_tc
+                 build:
+                       context: .
+                         dockerfile: Dockerfile_tc
                 ports:
-                      - "8080:8080"
+                       - "8080:8080"
         command: "/opt/tomcat/bin/catalina.sh run"
 ---
